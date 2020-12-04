@@ -1,0 +1,22 @@
+{
+  "name": "elementary-rotations",
+  "version": "1.0.0",
+  "description": "Elementary rotations - rotation matrices",
+  "main": "mcer.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterTadich/elementary-rotations.git"
+  },
+  "author": "Peter Tadich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PeterTadich/elementary-rotations/issues"
+  },
+  "homepage": "https://github.com/PeterTadich/elementary-rotations#readme",
+  "dependencies": {
+    "matrix-computations": "git+https://github.com/PeterTadich/matrix-computations.git"
+  }
+}
