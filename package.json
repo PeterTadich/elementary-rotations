@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/PeterTadich/elementary-rotations/issues"
   },
-  "homepage": "https://github.com/PeterTadich/elementary-rotations#readme",
-  "dependencies": {
-    "matrix-computations": "git+https://github.com/PeterTadich/matrix-computations.git"
-  }
+  "homepage": "https://github.com/PeterTadich/elementary-rotations#readme"
 }
