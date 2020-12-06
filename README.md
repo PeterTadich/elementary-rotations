@@ -1,8 +1,6 @@
 # elementary-rotations
 Elementary rotations - rotation matrices
 
-## Installation
-
 ## Dependencies
 
 There is 2 dependency 'matrix-computations' and 'matlab-javascript'.
@@ -11,6 +9,8 @@ There is 2 dependency 'matrix-computations' and 'matlab-javascript'.
 https://github.com/PeterTadich/matrix-computations
 https://github.com/PeterTadich/matlab-javascript
 ```
+
+## Installation
 
 ### Node.js
 
