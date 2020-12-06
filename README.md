@@ -3,6 +3,15 @@ Elementary rotations - rotation matrices
 
 ## Installation
 
+## Dependencies
+
+There is 2 dependency 'matrix-computations' and 'matlab-javascript'.
+
+```bash
+npm install https://github.com/PeterTadich/matrix-computations
+npm install https://github.com/PeterTadich/matlab-javascript
+```
+
 ### Node.js
 
 ```bash
