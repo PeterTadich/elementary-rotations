@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/PeterTadich/elementary-rotations/issues"
   },
-  "homepage": "https://github.com/PeterTadich/elementary-rotations#readme"
+  "homepage": "https://github.com/PeterTadich/elementary-rotations#readme",
+  "dependencies": {
+    "matlab-javascript": "git+https://github.com/PeterTadich/matlab-javascript.git",
+    "matrix-computations": "git+https://github.com/PeterTadich/matrix-computations.git"
+  }
 }
