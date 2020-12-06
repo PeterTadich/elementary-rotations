@@ -277,7 +277,7 @@ function rot2omega(R){
         var w = 
             hlao.vector_multiplication_scalar(
                 el,
-                Math.atan2(norm_el, trace(R)-1)/norm_el
+                Math.atan2(norm_el, mtojs.trace(R)-1)/norm_el
             );
     } else if((R[0][0] > 0.0)&&(R[1][1] > 0.0)&&(R[2][2] > 0.0)) {
         var w = [[0.0],[0.0],[0.0]];
