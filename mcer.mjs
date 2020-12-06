@@ -241,6 +241,56 @@ function Rfrom2vectors(a,b){
     return R;
 }
 
+//requires:
+//   z.js
+//   matrixAlgebra.js
+//   elementaryRotations.js
+/*
+var ORO = [
+        [1.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0],
+        [0.0, 0.0, 1.0]
+    ];
+var OR1 = Rz_elementary(Math.PI/64.0);
+console.log(Math.PI/64.0);
+*/
+/*
+var w = rot2omega(OR1);
+console.log(w[2][0]);
+var w_check = infinitesimalRotation(ORO,OR1); //ref: "../DenavitHartenberg/DenavitHartenberg.js"
+console.log(w_check[2][0]);
+*/
+//var rpy = [[(Math.PI/2.0)*Math.random()],[(Math.PI/2.0)*Math.random()],[(Math.PI/2.0)*Math.random()]];
+//ref: Introduction to Humanoid Robotics (page 36, 67)
+//see also rot2omega.js
+function rot2omega(R){
+    var el = [
+        [R[2][1] - R[1][2]],
+        [R[0][2] - R[2][0]],
+        [R[1][0] - R[0][1]]
+    ];
+    
+    var norm_el = matrix_norms(el,'2');
+    
+    if(norm_el > 0.001){
+        var w = 
+            vector_multiplication_scalar(
+                el,
+                Math.atan2(norm_el, trace(R)-1)/norm_el
+            );
+    } else if((R[0][0] > 0.0)&&(R[1][1] > 0.0)&&(R[2][2] > 0.0)) {
+        var w = [[0.0],[0.0],[0.0]];
+    } else {
+        var w = 
+            vector_multiplication_scalar(
+                [[R[0][0]+1],[R[1][1]+1],[R[2][2]+1]],
+                Math.PI/2.0
+            );
+    }
+    
+    return w;
+}
+
 function print_rotation_matrix(R,x){
     //print the rotation matrix
     //   - 'R' the rotation matrix
@@ -270,5 +320,6 @@ export {
     rpy2r,
     rpy2r_RMPC,
     Rfrom2vectors,
+    rot2omega,
     print_rotation_matrix
 };
