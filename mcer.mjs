@@ -11,6 +11,7 @@
 //  - where R0,1 is the rotation matrix of frame O-x1y1z1 with respect to the fixed frame O-x0y0z0 (page 46)
 
 import * as hlao from 'matrix-computations';
+import * as mtojs from 'matlab-javascript';
 
 function Rx_elementary(gamma){
     //var a = [[1], [0], [0]];
@@ -270,7 +271,7 @@ function rot2omega(R){
         [R[1][0] - R[0][1]]
     ];
     
-    var norm_el = matrix_norms(el,'2');
+    var norm_el = mtojs.matrix_norms(el,'2');
     
     if(norm_el > 0.001){
         var w = 
@@ -296,9 +297,11 @@ function print_rotation_matrix(R,x){
     //   - 'R' the rotation matrix
     //   - 'x' the number of digits after the decimal point to print
     var Rstr = "";
-    var dim = size(R);
-    var m = dim[0]; //number of rows
-    var n = dim[1]; //number of columns
+    //var dim = size(R);
+    //var m = dim[0]; //number of rows
+    //var n = dim[1]; //number of columns
+    var m; var n;
+    [m,n] = [R.length,R[0].length];
     Rstr = Rstr + '[\n';
     for(var i=0;i<m;i=i+1){ //row
         Rstr = Rstr + '    [';
