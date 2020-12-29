@@ -292,6 +292,38 @@ function rot2omega(R){
     return w;
 }
 
+/*
+For small dt can also use --> 'skew(w)*dt':
+matrix_multiplication_scalar(S(w),dt)
+ref: eq 3.7 Robotics Vision and Control
+*/
+//ref: Intro to Humanoid Robotics page 35 (eq 2.37)
+function Rodrigues(w,dt){
+    var n = w.length;
+    var eps = 2.2204e-16;
+    var mag = Math.sqrt(w[0][0]*w[0][0] + w[1][0]*w[1][0] + w[2][0]*w[2][0]);
+    if(mag < eps) var R = hlao.identity_matrix(n);
+    else {
+        var wn = hlao.matrix_multiplication_scalar(w,1.0/mag); //angular velocity unit vector
+        var th = mag*dt; //amount of rotation (radians)
+        var w_wedge = [ //skew
+            [          0.0, -1.0*wn[2][0],      wn[1][0]],
+            [     wn[2][0],           0.0, -1.0*wn[0][0]],
+            [-1.0*wn[1][0],      wn[0][0],           0.0]
+        ];
+        var R = hlao.matrix_arithmetic(
+                    hlao.identity_matrix(n),
+                    hlao.matrix_arithmetic(
+                        hlao.matrix_multiplication_scalar(w_wedge,Math.sin(th)),
+                        hlao.matrix_multiplication_scalar(hlao.matrix_multiplication(w_wedge,w_wedge),(1.0 - Math.cos(th))),
+                        '+'
+                    ),
+                    '+'
+                );
+    }
+    return(R);
+}
+
 function print_rotation_matrix(R,x){
     //print the rotation matrix
     //   - 'R' the rotation matrix
@@ -324,5 +356,6 @@ export {
     rpy2r_RMPC,
     Rfrom2vectors,
     rot2omega,
+    Rodrigues,
     print_rotation_matrix
 };
