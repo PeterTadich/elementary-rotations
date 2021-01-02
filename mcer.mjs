@@ -13,7 +13,7 @@
 import * as hlao from 'matrix-computations';
 import * as mtojs from 'matlab-javascript';
 
-function rx_elementary(gamma){
+function Rx_elementary(gamma){
     //var a = [[1], [0], [0]];
     //console.log(hlao.matrix_multiplication(Ry_elementary(Math.PI),a));
     //--> returns [[-1], [0], [0]]
