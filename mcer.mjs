@@ -298,7 +298,7 @@ matrix_multiplication_scalar(S(w),dt)
 ref: eq 3.7 Robotics Vision and Control
 */
 //ref: Intro to Humanoid Robotics page 35 (eq 2.37)
-function rodrigues(w,dt){
+function Rodrigues(w,dt){
     var n = w.length;
     var eps = 2.2204e-16;
     var mag = Math.sqrt(w[0][0]*w[0][0] + w[1][0]*w[1][0] + w[2][0]*w[2][0]);
