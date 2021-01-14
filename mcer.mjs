@@ -12,6 +12,8 @@
 
 import * as hlao from 'matrix-computations';
 import * as mtojs from 'matlab-javascript';
+//import * as hlao from '../matrix-computations/hlao.mjs';
+//import * as mtojs from '../matlab-javascript/mtojs.mjs';
 
 function Rx_elementary(gamma){
     //var a = [[1], [0], [0]];
